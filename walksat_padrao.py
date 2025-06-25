@@ -1,24 +1,3 @@
-# mix de aleatoriedade com busca local
-# algoritmo sorteia valores, true or false, para as variaveis
-#verifica quais clausulas estão falsas
-#escolhe clausula falsa aleatória
-
-# apos isso, ele tem 2 formas para solucionar isso.
-# 🔹 1. Com probabilidade p (ex: p = 0.5):
-# Faz uma escolha aleatória dentro da cláusula.
-# e troca o seu valor
-# 🔸 2. Com probabilidade (1 - p) (ex: 0.5):
-# testa cada variável da cláusula para ver qual delas, 
-# se invertida, melhora mais o número de cláusulas verdadeiras.
-
-# a escolha entre as duas formas é feita por sorteio probabilístico
-# gera um num decimal entre 0 e 1, dita-se a probabilistica p
-# p é a chance de de ser utilizado o modo aleatorio,
-# ex. p= 1, 100% aleatorio, p=0.6 60% chance de ser aleatorio
-# random.random() < p, 
-# se valor sorteado for menor que p usa-se modo aleatorio
-# se maior modo inteligente
-
 import random
 
 # avalia quantas cláusulas estão satisfeitas com a atribuição atual

@@ -1,0 +1,41 @@
+walksat padrao:
+
+algoritmo mistura aleatoriedade com busca local
+
+primeiro, ele sorteia valores true ou false para cada variavel
+
+depois, verifica quais clausulas da formula estao falsas
+
+em seguida, escolhe uma clausula falsa aleatoriamente
+
+para tentar satisfazer essa clausula, ele pode fazer duas coisas:
+
+1. com uma chance p (por exemplo p = 0.5), ele escolhe uma variavel aleatoria da clausula e troca seu valor
+
+2. com chance (1 - p), ele testa todas as variaveis da clausula, troca uma por vez e avalia qual troca satisfaz mais clausulas. ele escolhe a melhor
+
+a escolha entre modo aleatorio e modo inteligente é feita com base na chance p
+
+---------------------------------------------------------
+
+walksat critico:
+
+essa é uma versao melhorada do walksat padrao
+
+ele comeca igual: sorteia valores para as variaveis e verifica quais clausulas estao falsas
+
+mas ele tambem guarda um contador de quantas vezes cada clausula ficou falsa
+
+se uma clausula continuar falsa muitas vezes, ela é considerada critica
+
+na hora de escolher uma clausula para resolver, ele pode escolher:
+
+- uma clausula critica, com chance p_critico (por exemplo p_critico = 0.7)
+
+- ou uma clausula falsa qualquer, com chance (1 - p_critico)
+
+depois que a clausula é escolhida, ele resolve ela da mesma forma que o walksat padrao:
+com chance p, troca uma variavel aleatoria
+com chance (1 - p), testa todas e escolhe a melhor
+
+essa estrategia ajuda a focar nas partes mais problematicas da formula

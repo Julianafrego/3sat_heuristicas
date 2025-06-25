@@ -1,24 +1,3 @@
-# versão melhorada do walksat com foco em cláusulas críticas
-# algoritmo começa igual: sorteia valores true ou false para as variáveis
-# verifica quais cláusulas estão falsas (insatisfeitas)
-
-# além disso, ele mantém um contador de quantas vezes cada cláusula ficou insatisfeita
-# se uma cláusula continuar falsa muitas vezes, ela se torna "crítica"
-# essas cláusulas críticas ganham prioridade nas próximas escolhas
-
-# na escolha da cláusula:
-# 🔹 com probabilidade p_critico (ex: 0.7):
-# escolhe uma cláusula crítica (mais problemática) aleatoriamente
-# 🔸 com probabilidade (1 - p_critico):
-# escolhe qualquer cláusula falsa aleatoriamente
-
-# depois, a resolução da cláusula é igual ao algoritmo original:
-# com chance p: escolhe uma variável aleatória da cláusula e inverte
-# com chance (1 - p): testa cada variável da cláusula e inverte a que melhora mais
-
-# essa estratégia permite atacar os pontos fracos da fórmula
-# priorizando as partes que mais impedem a satisfação
-
 import random
 from walksat_padrao import evaluate  # reutiliza a função de avaliação
 
