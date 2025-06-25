@@ -2,6 +2,7 @@ import time
 import csv
 import statistics
 import matplotlib.pyplot as plt
+import random
 
 from walksat_padrao import walkSAT
 from walksat_critico import walkSAT_critico
@@ -37,7 +38,6 @@ def run_tests_log(formula, num_vars, algorithm, num_runs=10, **kwargs):
 
 # gera instância aleatoria do problema 3-sat
 def gerar_instancia_3sat(num_vars, num_clausulas):
-    import random
     formula = []   # lista de clausulas
     for _ in range(num_clausulas):
         clause = []  # uma clausula com 3 literais
@@ -67,7 +67,7 @@ for n_vars in tamanhos_variaveis:
     resultados.append(r1)
 
     # executa walksat crítico
-    r2 = run_tests_log(formula, n_vars, walkSAT_critico, num_runs=num_execucoes, max_flips=5000, p=0.5, p_critico=0.7, critico_treshold=5)
+    r2 = run_tests_log(formula, n_vars, walkSAT_critico, num_runs=num_execucoes, max_flips=10000, p=0.5, p_critico=0.7, critico_treshold=5)
     r2["n_vars"] = n_vars
     resultados.append(r2)
 
